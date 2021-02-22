@@ -35,6 +35,7 @@ namespace travel.Services
     internal Trip EditTrip(Trip updatedTrip)
     {
       Trip original = GetById(updatedTrip.Id);
+      // TODO MORE HERE
        original.Hotels = updatedTrip.Hotels != 0 ? updatedTrip.Hotels : original.Hotels;
       return _repo.Edit(original);
     }
