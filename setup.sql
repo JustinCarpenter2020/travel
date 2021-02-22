@@ -2,12 +2,18 @@
 --   id INT AUTO_INCREMENT,
 --   port INT,
 --   shows INT, 
+--     price INT,
+--   finalDestination VARCHAR(255),
+--   title VARCHAR(255),
 --   PRIMARY KEY(id)
--- )
+-- );
 
 -- CREATE TABLE Trip (
 --   id INT AUTO_INCREMENT,
---   carRental BOOLEAN,
+--   carRental TINYINT,
 --   hotels INT, 
+--   price INT,
+--   finalDestination VARCHAR(255),
+--   title VARCHAR(255),
 --   PRIMARY KEY(id)
--- )
+-- );
