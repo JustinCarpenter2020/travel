@@ -1,4 +1,7 @@
+using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using travel.Models;
 using travel.Services;
 
 namespace travel.Controllers
@@ -11,6 +14,21 @@ namespace travel.Controllers
         public VacationsController(VacationService service)
         {
             _service = service;
+        }
+
+        [HttpGet]
+        public ActionResult<IEnumerable<Vacation>> Get()
+        {
+            try
+            {
+                var data = _service.getAll();
+                return Ok(data);
+            }
+            catch (Exception e)
+            {
+                
+                return BadRequest(e.Message);
+            }
         }
 
 
