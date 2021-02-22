@@ -1,8 +1,7 @@
 namespace travel.Models
 {
-    public class Cruise
+    public class Cruise : Vacation
     {
-        public int Id { get; set; }
         public int Port { get; set; }
         public int Shows { get; set; }
         
