@@ -14,9 +14,12 @@ namespace travel.Repositories
       {
           _db = db;
       }
-    internal IEnumerable<Vacation> getAll()
+    public IEnumerable<Vacation> getAll()
     {
-      string sql = "SELECT * FROM cruise, trip;";
+      string sql = @"
+      SELECT * FROM trip; 
+      SELECT * FROM cruise;
+      ";
       return _db.Query<Vacation>(sql);
     }
   }

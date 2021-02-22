@@ -21,8 +21,7 @@ namespace travel.Controllers
         {
             try
             {
-                var data = _service.getAll();
-                return Ok(data);
+                return Ok(_service.getAll());
             }
             catch (Exception e)
             {
