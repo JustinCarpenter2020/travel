@@ -40,7 +40,14 @@ namespace travel.Repositories
 
     internal Trip Edit(Trip original)
     {
-      throw new NotImplementedException();
+      string sql = @"
+      UPDATE trip
+      SET
+      carRental = @carRental,
+      hotels = @hotels 
+      WHERE id = @Id;
+      SELECT * FROM trip WHERE id = @Id;";
+      return _db.QueryFirstOrDefault<Trip>(sql, original);
     }
 
     internal void Delete(Trip trip)

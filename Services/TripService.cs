@@ -36,7 +36,6 @@ namespace travel.Services
     {
       Trip original = GetById(updatedTrip.Id);
        original.Hotels = updatedTrip.Hotels != 0 ? updatedTrip.Hotels : original.Hotels;
-      original.CarRental = updatedTrip.CarRental != true ? updatedTrip.CarRental : original.CarRental;
       return _repo.Edit(original);
     }
 
