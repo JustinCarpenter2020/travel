@@ -1,10 +1,16 @@
 using System;
 using travel.Models;
+using travel.Repositories;
 
 namespace travel.Services
 {
   public class TripService
   {
+       private readonly TripRepository _repo;
+      public TripService(TripRepository repo)
+      {
+          _repo = repo;
+      }
     internal object GetAll()
     {
       throw new NotImplementedException();
