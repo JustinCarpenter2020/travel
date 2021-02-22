@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using travel.Services;
 
 namespace travel.Controllers
 {
@@ -6,6 +7,14 @@ namespace travel.Controllers
     [Route("api/[controller]")]
     public class CruisesController: ControllerBase
     {
+        private readonly CruiseService _service;
+        public CruisesController(CruiseService service)
+        {
+            _service = service;
+        }
+
+
+        
         
     }
 }
