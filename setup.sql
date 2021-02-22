@@ -1,0 +1,13 @@
+-- CREATE TABLE Cruise (
+--   id INT AUTO_INCREMENT,
+--   port INT,
+--   shows INT, 
+--   PRIMARY KEY(id)
+-- )
+
+-- CREATE TABLE Trip (
+--   id INT AUTO_INCREMENT,
+--   carRental BOOLEAN,
+--   hotels INT, 
+--   PRIMARY KEY(id)
+-- )
