@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using travel.Repositories;
+using travel.Services;
 
 namespace travel
 {
@@ -26,6 +28,14 @@ namespace travel
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+             services.AddTransient<VacationRepository>();
+            services.AddTransient<TripRepository>();
+            services.AddTransient<CruiseRepository>();
+
+
+            services.AddTransient<VacationService>();
+            services.AddTransient<TripService>();
+            services.AddTransient<CruiseService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
