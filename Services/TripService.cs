@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using travel.Models;
 using travel.Repositories;
 
@@ -11,29 +12,39 @@ namespace travel.Services
       {
           _repo = repo;
       }
-    internal object GetAll()
+    internal IEnumerable<Trip> GetAll()
     {
-      throw new NotImplementedException();
+      return _repo.GetAll();
     }
 
-    internal object GetById(object id)
+    internal Trip GetById(int id)
     {
-      throw new NotImplementedException();
+      Trip trip = _repo.GetById(id);
+      if(trip == null)
+      {
+          throw new Exception("invalid id");
+      }
+      return trip;
     }
 
-    internal object Create(Trip newTrip)
+    internal Trip Create(Trip newTrip)
     {
-      throw new NotImplementedException();
+      return _repo.Create(newTrip);
     }
 
-    internal object EditTrip(Trip updatedTrip)
+    internal Trip EditTrip(Trip updatedTrip)
     {
-      throw new NotImplementedException();
+      Trip original = GetById(updatedTrip.Id);
+       original.Hotels = updatedTrip.Hotels != 0 ? updatedTrip.Hotels : original.Hotels;
+      original.CarRental = updatedTrip.CarRental != true ? updatedTrip.CarRental : original.CarRental;
+      return _repo.Edit(original);
     }
 
-    internal void Delete(int id)
+    internal string Delete(int id)
     {
-      throw new NotImplementedException();
+      Trip trip = GetById(id);
+      _repo.Delete(trip);
+      return "Deleted";
     }
   }
 }
