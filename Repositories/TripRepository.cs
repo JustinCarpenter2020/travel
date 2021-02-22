@@ -45,7 +45,8 @@ namespace travel.Repositories
 
     internal void Delete(Trip trip)
     {
-      throw new NotImplementedException();
+      string sql = "DELETE FROM trip WHERE id =@id;";
+      _db.Execute(sql, trip);
     }
   }
 }
